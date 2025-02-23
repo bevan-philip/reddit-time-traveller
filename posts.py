@@ -110,14 +110,16 @@ def display_posts(posts: List[Dict], console: Console):
     table.add_column("#", style="dim", width=4)
     table.add_column("Title", width=60)
     table.add_column("Score", justify="right", width=10)
-    table.add_column("Link")
+    table.add_column("Post Link")
+    table.add_column("URL")
 
     for idx, post in enumerate(posts, 1):
         table.add_row(
             str(idx),
             post['title'],
             str(post['score']),
-            f"https://reddit.com{post['permalink']}"
+            f"https://reddit.com{post['permalink']}",
+            post['url'],
         )
 
     console.print(table)
