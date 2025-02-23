@@ -4,26 +4,27 @@ import sys
 import time
 from datetime import datetime
 from typing import Dict, List, Optional
+from dataclasses import dataclass
 
 import httpx
 from rich.console import Console
 from rich.table import Table
 
 
+@dataclass
 class PullpushFetcher:
-    def __init__(self, api_base_url: str = "https://api.pullpush.io/reddit"):
+    api_base_url: str = "https://api.pullpush.io/reddit"
+    logger = logging.getLogger(__name__)
+
+    def __post_init__(self):
         """
         Initialize the PullpushFetcher with a configurable API base URL.
-
-        Args:
-            api_base_url (str): Base URL for the Pullpush API
         """
-        self.api_base_url = api_base_url.rstrip("/")
+        self.api_base_url = self.api_base_url.rstrip("/")
         self.client = httpx.Client(timeout=30.0)
 
         # Setup logging
         logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
 
     def __enter__(self):
         return self
