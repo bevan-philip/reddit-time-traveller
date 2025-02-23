@@ -1,0 +1,10 @@
+[project]
+name = "reddit-time-traveller"
+version = "0.1.0"
+description = "A CLI tool to see the top posts of a certain year in a community"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx>=0.28.1",
+    "rich>=13.9.4",
+]
