@@ -13,10 +13,10 @@ from rich.table import Table
 class PullpushFetcher:
     def __init__(self, api_base_url: str = "https://api.pullpush.io/reddit"):
         """
-        Initialize the PushshiftFetcher with a configurable API base URL.
+        Initialize the PullpushFetcher with a configurable API base URL.
 
         Args:
-            api_base_url (str): Base URL for the Pushshift API
+            api_base_url (str): Base URL for the Pullpush API
         """
         self.api_base_url = api_base_url.rstrip("/")
         self.client = httpx.Client(timeout=30.0)
@@ -155,7 +155,7 @@ def main():
     parser.add_argument(
         "--api-url",
         default="https://api.pullpush.io/reddit",
-        help="Alternative Pushshift API URL",
+        help="Alternative Pullpush API URL",
     )
 
     args = parser.parse_args()
