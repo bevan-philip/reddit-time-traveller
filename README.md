@@ -1,5 +1,5 @@
 # reddit-time-traveller
-A CLI tool using the PullPush API to allow you to browse the top posts for a specified time period.
+A CLI tool using the PullPush API to allow you to browse the top posts for a specified year.
 
 ## Usage
 For those using UV, 
